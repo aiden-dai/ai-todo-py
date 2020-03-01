@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>My Todo list</h2>
+<ul>
+    {% for task in tasks %}
+    <li><p>{{task.content}} {{task.status}}
+        <a href="{{ url_for('complete_task',id=task._id)}}">Mark As Completed</a>&nbsp&nbsp<a href="{{ url_for('delete_task',id=task._id)}}">Delete</a></p>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('create') }}">Create Task</a>
+{% endblock %}
