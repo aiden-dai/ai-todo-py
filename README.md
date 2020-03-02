@@ -55,3 +55,20 @@ docker run --rm -d -p 8081:8081 --name todo  --link taskapi:api my-todo
 
 3. Access 'localhost:8081'
 
+
+## Run the app in kubernetes (local cluster):
+
+- Use kubectl
+```bash
+kubectl apply -f manifests/mongo-pv.yaml
+kubectl apply -f manifests/mongodb.yaml
+kubectl apply -f manifests/backend.yaml
+kubectl apply -f manifests/frontend.yaml
+```
+
+- Use skaffold
+```bash
+# run in local-cluster
+skaffold config set --global local-cluster true
+skaffold run
+```
